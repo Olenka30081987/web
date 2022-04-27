@@ -49,7 +49,7 @@ public class FooterMenu extends AbstractPage{
         return this;
     }
 
-    public void waitReviews() {
+    public FooterMenu waitReviews() {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(),10);
             wait.until(ExpectedConditions.elementToBeClickable(reviews));
@@ -57,17 +57,17 @@ public class FooterMenu extends AbstractPage{
             Screenshot.makeScreenshot(getDriver(),
                     "FooterMenuTest" + System.currentTimeMillis() + ".png");
         }
+        return this;
     }
 
     public void clickReviews() throws InterruptedException {
 
         try {
-            this.aboutUs.click();
+             this.reviews.click();
         } catch (Exception e){
             Screenshot.makeScreenshot(getDriver(),
                     "FooterMenuTest" + System.currentTimeMillis() + ".png");
         }
-        this.reviews.click();
         Thread.sleep(3000L);
     }
 

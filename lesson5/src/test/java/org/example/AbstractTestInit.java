@@ -21,7 +21,7 @@ public class AbstractTestInit {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        //options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -36,7 +36,7 @@ public class AbstractTestInit {
 
     @AfterAll
     static void close(){
-//         driver.quit();
+         driver.quit();
     }
 
     public static WebDriver getDriver() {

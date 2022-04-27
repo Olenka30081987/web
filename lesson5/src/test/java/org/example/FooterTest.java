@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class FooterTest extends AbstractTestInit {
 
     @Test
-    public void footer() {
+    public void footer() throws InterruptedException {
 
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
@@ -20,6 +20,7 @@ public class FooterTest extends AbstractTestInit {
         aboutUs.click();
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.urlContains("https://belpodium.ru/about/o-nas/"));
         Assertions.assertEquals("https://belpodium.ru/about/o-nas/",getDriver().getCurrentUrl());
+        Thread.sleep(5000L);
 
         WebElement reviews = getDriver().findElement(By.xpath("//div[@class='menu_block']/a[1]"));
         reviews.click();

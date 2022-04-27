@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 public class AuthorizationTelTest extends AbstractTestInit{
 
     @Test
-    public void authorizationTest() throws InterruptedException {
+    public void authorizationTel() throws InterruptedException {
 
         getDriver().get("https://belpodium.ru");
         WebElement authorization = getDriver().findElement(By.xpath(".//a[@class='auth_link']"));

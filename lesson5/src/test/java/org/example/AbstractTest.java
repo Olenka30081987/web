@@ -12,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public abstract class AbstractTest {
@@ -24,7 +23,7 @@ public abstract class AbstractTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -37,7 +36,6 @@ public abstract class AbstractTest {
         Assertions.assertDoesNotThrow( ()-> driver.navigate().to("https://belpodium.ru"),
                 "Страница не доступна");
 
-        getDriver().get("https://belpodium.ru");
         WebElement authorization = getDriver().findElement(By.xpath(".//a[@class='auth_link']"));
         authorization.click();
         Actions authorizationForm = new Actions(getDriver());
@@ -49,7 +47,7 @@ public abstract class AbstractTest {
                 .click(getDriver().findElement(By.xpath(".//form/div[2]/div[2]/div[6]/button ")))
                 .build()
                 .perform();
-        Thread.sleep(5000L);
+        Thread.sleep(10000L);
     }
 
 

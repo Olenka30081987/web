@@ -6,12 +6,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class AddBasketTest extends AbstractTest {
 
     @Test
-    public void addBasket() throws InterruptedException {
+    public void addBasket() {
 
         Actions search = new Actions(getDriver());
         search.click(getDriver().findElement(By.xpath(".//form[@id='search_form']/input")))
@@ -22,6 +24,10 @@ public class AddBasketTest extends AbstractTest {
 
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         jse.executeScript("window.scrollBy(0,450)", "");
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Платье Wisell арт: 895430']")));
+
         WebElement product = getDriver().findElement(By.xpath("//img[@alt='Платье Wisell арт: 895430']"));
         product.click();
         String urlBefore = getDriver().getCurrentUrl();
@@ -33,20 +39,10 @@ public class AddBasketTest extends AbstractTest {
                 .build()
                 .perform();
 
-
         WebElement productInBasket = getDriver().findElement(By.xpath("//a[@class='basket_picture']"));
         productInBasket.click();
         String urlAfter = getDriver().getCurrentUrl();
 
        Assertions.assertEquals(urlBefore,urlAfter);
-
-
-        WebElement basket = getDriver().findElement(By.xpath("//div[@class='hidden_minicart_hover']"));
-        Actions deleteProduct = new Actions(getDriver());
-        deleteProduct.moveToElement(basket)
-                .click(getDriver().findElement(By.xpath("//div[@class='minicart_item_delete active_ev']")))
-                .build()
-                .perform();
-
     }
 }

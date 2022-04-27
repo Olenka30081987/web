@@ -33,43 +33,75 @@ public class AddFavorites extends AbstractPage {
 
     public void search(String product){
 
-        Actions search = new Actions(getDriver());
-        search
-                .click(this.search)
-                .sendKeys(product)
-                .click(this.searchButton)
-                .build()
-                .perform();
+        try {
+            Actions search = new Actions(getDriver());
+            search
+                    .click(this.search)
+                    .sendKeys(product)
+                    .click(this.searchButton)
+                    .build()
+                    .perform();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddFavoritesTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public void productClick(){
-        this.product.click();
+
+        try {
+            this.product.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddFavoritesTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public AddFavorites productAdd(){
 
-        Actions productAdd  = new Actions(getDriver());
-        productAdd
-                .click(this.productSize)
-                .click(this.buttonFavorites)
-                .build()
-                .perform();
+        try {
+            Actions productAdd  = new Actions(getDriver());
+            productAdd
+                    .click(this.productSize)
+                    .click(this.buttonFavorites)
+                    .build()
+                    .perform();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddFavoritesTest" + System.currentTimeMillis() + ".png");
+        }
         return this;
     }
 
     public AddFavorites productInFavorites(){
-        this.itemFavorites.click();
+
+        try {
+            this.itemFavorites.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddFavoritesTest" + System.currentTimeMillis() + ".png");
+        }
         return this;
     }
 
-    public AddFavorites basketPicture(){
-        this.basketPicture.click();
-        return this;
+    public void basketPicture(){
+
+        try {
+            this.basketPicture.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddFavoritesTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
-    public AddFavorites delFromFavorites(){
-        this.delFromFavorites.click();
-        return this;
+    public void delFromFavorites(){
+
+        try {
+            this.delFromFavorites.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddFavoritesTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public AddFavorites(WebDriver driver) {

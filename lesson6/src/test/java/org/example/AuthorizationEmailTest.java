@@ -7,6 +7,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class AuthorizationEmailTest extends AbstractTest {
@@ -18,9 +19,6 @@ public class AuthorizationEmailTest extends AbstractTest {
     @Severity(SeverityLevel.CRITICAL)
     public void authorizationEmailTest() {
 
-        Authorization authorization = new Authorization(getDriver());
-        WebElement temp = authorization.getPersonalAccount();
-        Assertions.assertNotNull(temp.getAccessibleName());
-
+        Assertions.assertNotNull(getDriver().findElement(By.xpath(".//a[@class='main_cab_link']")));
     }
 }

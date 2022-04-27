@@ -24,6 +24,7 @@ public class AddFavoritesTest extends AbstractTest {
 
         jse.executeScript("window.scrollBy(0,450)", "");
 
+
         addFavorites.productClick();
 
         String urlBefore = getDriver().getCurrentUrl();

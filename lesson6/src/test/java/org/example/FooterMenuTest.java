@@ -8,20 +8,24 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
+
+
 public class FooterMenuTest extends AbstractTestInit {
 
     @Test
-    @DisplayName("Нижнее меню")
-    @Description("Проверка нижнего меню сайта")
+    @DisplayName("Меню футера сайта")
+    @Description("Проверка меню футера сайта")
     @Link("http://google.com")
     @Severity(SeverityLevel.MINOR)
-    void footerMenuTest(){
+    void footerMenuTest() throws InterruptedException {
         FooterMenu footerMenu = new FooterMenu(getDriver());
 
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
 
-        footerMenu.clickAboutUs();
+        footerMenu
+                .clickAboutUs()
+                .waitReviews();
         Assertions.assertEquals("https://belpodium.ru/about/o-nas/",getDriver().getCurrentUrl());
 
         footerMenu.clickReviews();

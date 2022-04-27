@@ -7,7 +7,7 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
 
 public class AuthorizationTelTest extends AbstractTestInit {
 
@@ -21,7 +21,6 @@ public class AuthorizationTelTest extends AbstractTestInit {
         Authorization authorization = new Authorization(getDriver());
         authorization.authorizationButtonClick();
         authorization.authorizationTel("9973352618", "qwerty1");
-        WebElement temp = authorization.getPersonalAccount();
-        Assertions.assertNotNull(temp.getAccessibleName());
+        Assertions.assertNotNull(getDriver().findElement(By.xpath(".//a[@class='main_cab_link']")));
     }
 }

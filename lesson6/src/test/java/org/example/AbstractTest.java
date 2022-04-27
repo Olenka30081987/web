@@ -21,7 +21,7 @@ public abstract class AbstractTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        options.addArguments("--headless");
+//        options.addArguments("--headless");
         options.addArguments("start-maximized");
         options.setPageLoadTimeout(Duration.ofSeconds(10));
 
@@ -36,8 +36,6 @@ public abstract class AbstractTest {
     void goTo() throws InterruptedException {
         Assertions.assertDoesNotThrow(() -> getDriver().navigate().to("https://belpodium.ru"),
                 "Страница не доступна");
-
-        getDriver().get("https://belpodium.ru");
 
         Authorization authorization = new Authorization(getDriver());
         authorization.authorizationButtonClick();

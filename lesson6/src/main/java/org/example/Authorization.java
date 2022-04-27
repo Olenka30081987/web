@@ -37,34 +37,44 @@ public class Authorization extends AbstractPage {
 
 
     public void authorizationButtonClick() {
-        this.authorizationButton.click();
+
+        try {
+            this.authorizationButton.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AuthorizationTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public Authorization setEmail(String email) {
+
+        try {
             this.email.click();
             this.email.sendKeys(email);
-            return this;
-    }
-
-    public WebElement getPersonalAccount() {
-        return personalAccount;
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AuthorizationEmailTest" + System.currentTimeMillis() + ".png");
+        }
+        return this;
     }
 
     public Authorization setPassword(String password) {
+
+        try {
             this.pwd.click();
             this.pwd.sendKeys(password);
-            return this;
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AuthorizationTest" + System.currentTimeMillis() + ".png");
+        }
+        return this;
     }
-
-    public Authorization authorizationButton() {
-            this.authorizationButton.click();
-            return this;
-    }
-
 
     public void authorizationEmail(String email, String password) {
-        Actions authorizationEmail = new Actions(getDriver());
-        authorizationEmail
+
+        try {
+            Actions authorizationEmail = new Actions(getDriver());
+            authorizationEmail
                     .click(this.emailButton)
                     .click(this.email)
                     .sendKeys(email)
@@ -73,21 +83,30 @@ public class Authorization extends AbstractPage {
                     .click(this.formButton)
                     .build()
                     .perform();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AuthorizationEmailTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public void authorizationTel(String tel, String password) {
-        Actions authorizationTel = new Actions(getDriver());
-        authorizationTel
-                .click(this.telButton)
-                .doubleClick(this.tel)
-                .sendKeys(tel)
-                .doubleClick(this.tel)
-                .sendKeys(tel)
-                .click(this.pwd)
-                .sendKeys(password)
-                .click(this.formButton)
-                .build()
-                .perform();
+
+        try {
+            Actions authorizationTel = new Actions(getDriver());
+            authorizationTel
+                    .click(this.telButton)
+                    .click(this.tel)
+                    .sendKeys(tel)
+                    .sendKeys(tel)
+                    .click(this.pwd)
+                    .sendKeys(password)
+                    .click(this.formButton)
+                    .build()
+                    .perform();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AuthorizationTelTest" + System.currentTimeMillis() + ".png");
+        }
     }
 }
 

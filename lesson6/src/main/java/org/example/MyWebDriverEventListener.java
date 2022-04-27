@@ -1,13 +1,9 @@
 package org.example;
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.UUID;
-
 public class MyWebDriverEventListener implements WebDriverEventListener {
+
     @Override
     public void beforeAlertAccept(WebDriver driver) {
 
@@ -37,9 +33,7 @@ public class MyWebDriverEventListener implements WebDriverEventListener {
 
     @Override
     public void afterNavigateTo(String url, WebDriver driver) {
-        String messageId = UUID.randomUUID().toString();
-        System.out.println(messageId + " : Navigating to [" + url + "] with driver [" + driver + "]");
-        makeScreenshot(driver,messageId);
+        System.out.println(" : Navigating to [" + url + "] with driver [" + driver + "]");
 
     }
 
@@ -80,12 +74,14 @@ public class MyWebDriverEventListener implements WebDriverEventListener {
 
     @Override
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-        System.out.println("I have finded element: "+element.getTagName());
-
+        if (element != null ) {
+            System.out.println("I have finded element: "+element.getTagName());
+        }
     }
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
+        System.out.println("I have cliked element: "+element.getTagName());
     }
 
     @Override
@@ -125,9 +121,7 @@ public class MyWebDriverEventListener implements WebDriverEventListener {
 
     @Override
     public void onException(Throwable throwable, WebDriver driver) {
-        String messageId = UUID.randomUUID().toString();
         System.out.println("Throwable to print message: "+throwable.getMessage());
-        makeScreenshot(driver, messageId);
     }
 
     @Override
@@ -148,17 +142,6 @@ public class MyWebDriverEventListener implements WebDriverEventListener {
     @Override
     public void afterGetText(WebElement element, WebDriver driver, String text) {
 
-    }
-
-    public static File makeScreenshot(WebDriver driver, String filename) {
-        File temp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        File destination = new File("C:/Users/User/Desktop/Java Web/lessons/lesson6/screenshots/" + filename);
-        try {
-            FileUtils.copyFile(temp, destination);
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-        return destination;
     }
 
 }

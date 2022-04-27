@@ -7,7 +7,11 @@ import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class FilterTest extends AbstractTestInit {
 
@@ -16,21 +20,23 @@ public class FilterTest extends AbstractTestInit {
     @Description("Проверка возможности сортировки товара")
     @Link("http://google.com")
     @Severity(SeverityLevel.NORMAL)
-    public void filter() {
-
-        getDriver().get("https://belpodium.ru");
+    public void filter() throws InterruptedException {
 
         Filter filter = new Filter(getDriver());
         filter
-                .menuItemClick()
-                .itemClick();
+                .waitMenuItem()
+                .menuItemClick();
+        Thread.sleep(5000);
 
         JavascriptExecutor jse = (JavascriptExecutor) getDriver();
         jse.executeScript("window.scrollBy(0,200)", "");
 
         filter.getFilter();
-        if (filter.getListFilter().size() >= 1) {
-            Assertions.assertTrue(true);
-        }
+        Thread.sleep(5000);
+
+       List<WebElement> list = getDriver().findElements(By.xpath("//ul[@class='wrap-elements']/li"));
+            if (list != null && list.size() > 0) {
+                Assertions.assertTrue(true);
+                }
     }
 }

@@ -3,6 +3,8 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FooterMenu extends AbstractPage{
 
@@ -34,35 +36,104 @@ public class FooterMenu extends AbstractPage{
         super(driver);
     }
 
-    public void clickAboutUs(){
-        aboutUs.click();
+    public FooterMenu clickAboutUs() throws InterruptedException {
+
+        try {
+            this.aboutUs.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+
+        Thread.sleep(10000L);
+        return this;
     }
 
-    public void clickReviews(){
-        reviews.click();
+    public void waitReviews() {
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(),10);
+            wait.until(ExpectedConditions.elementToBeClickable(reviews));
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
-    public void clickNews(){
-        news.click();
+    public void clickReviews() throws InterruptedException {
+
+        try {
+            this.aboutUs.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        this.reviews.click();
+        Thread.sleep(3000L);
     }
 
-    public void clickContacts(){
-        contacts.click();
+    public void clickNews() throws InterruptedException {
+
+        try {
+            this.news.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        Thread.sleep(3000L);
     }
 
-    public void clickBlog(){
-        blog.click();
+    public void clickContacts() throws InterruptedException {
+
+        try {
+            this.contacts.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        Thread.sleep(3000L);
     }
 
-    public void clickQuestions(){
-        questions.click();
+    public void clickBlog() throws InterruptedException {
+
+        try {
+            this.blog.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        Thread.sleep(3000L);
     }
 
-    public void clickOffer(){
-        offer.click();
+    public void clickQuestions() throws InterruptedException {
+
+        try {
+            this.questions.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        Thread.sleep(3000L);
     }
 
-    public void clickWholesaleBuyers(){
-        wholesaleBuyers.click();
+    public void clickOffer() throws InterruptedException {
+
+        try {
+            this.offer.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        Thread.sleep(3000L);
+    }
+
+    public void clickWholesaleBuyers() throws InterruptedException {
+
+        try {
+            this.wholesaleBuyers.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "FooterMenuTest" + System.currentTimeMillis() + ".png");
+        }
+        Thread.sleep(3000L);
     }
 }

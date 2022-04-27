@@ -32,34 +32,53 @@ public class AddBasket extends AbstractPage {
     private WebElement deleteProduct;
 
     public void search(String product){
-
-        Actions search = new Actions(getDriver());
-        search
-                .click(this.search)
-                .sendKeys(product)
-                .click(this.searchButton)
-                .build()
-                .perform();
+        try {
+            Actions search = new Actions(getDriver());
+            search
+                    .click(this.search)
+                    .sendKeys(product)
+                    .click(this.searchButton)
+                    .build()
+                    .perform();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddBasketTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public void productClick(){
-        this.product.click();
+        try {
+            this.product.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddBasketTest" + System.currentTimeMillis() + ".png");
+        }
+
     }
 
     public AddBasket productAdd (){
-
-        Actions productAdd  = new Actions(getDriver());
-        productAdd
-                .click(this.productSize)
-                .click(this.productAdd)
-                .click(this.productAdd)
-                .build()
-                .perform();
+        try {
+            Actions productAdd  = new Actions(getDriver());
+            productAdd
+                    .click(this.productSize)
+                    .click(this.productAdd)
+                    .click(this.productAdd)
+                    .build()
+                    .perform();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddBasketTest" + System.currentTimeMillis() + ".png");
+        }
         return this;
     }
 
     public void productInBasket(){
-        this.productInBasket.click();
+        try {
+            this.productInBasket.click();
+        } catch (Exception e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "AddBasketTest" + System.currentTimeMillis() + ".png");
+        }
     }
 
     public AddBasket(WebDriver driver) {

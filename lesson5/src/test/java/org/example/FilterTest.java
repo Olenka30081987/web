@@ -22,6 +22,7 @@ public class FilterTest extends AbstractTestInit{
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         jse.executeScript("window.scrollBy(0,200)", "");
 
+
         Actions filter = new Actions(getDriver());
         filter.click(getDriver().findElement(By.xpath("//*[@id='filtr_form']/div[3]/a/div")))
                 .pause(1000)

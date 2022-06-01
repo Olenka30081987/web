@@ -39,6 +39,7 @@ public class AddFavoritesTest extends AbstractTest {
                 .build()
                 .perform();
 
+
         WebElement itemFavorites = getDriver().findElement(By.xpath("//li[@class='favorited']"));
         itemFavorites.click();
 

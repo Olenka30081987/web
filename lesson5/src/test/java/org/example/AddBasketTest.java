@@ -33,6 +33,7 @@ public class AddBasketTest extends AbstractTest {
         product.click();
         String urlBefore = getDriver().getCurrentUrl();
 
+
         Actions productAdd = new Actions(getDriver());
         productAdd.click(getDriver().findElement(By.xpath("//label[@for='size_17']")))
                 .click(getDriver().findElement(By.xpath("//div[@class='wrap_btns_item']/div[1]/a")))

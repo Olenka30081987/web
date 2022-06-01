@@ -22,6 +22,7 @@ public class AbstractTestInit {
     static void init() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
+
         options.addArguments("--incognito");
 //        options.addArguments("--headless");
         options.addArguments("start-maximized");

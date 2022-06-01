@@ -12,6 +12,7 @@ public class AuthorizationTelTest extends AbstractTestInit{
     public void authorizationTel() throws InterruptedException {
 
 
+
         getDriver().get("https://belpodium.ru");
         WebElement authorization = getDriver().findElement(By.xpath(".//a[@class='auth_link']"));
         authorization.click();

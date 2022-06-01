@@ -43,6 +43,7 @@ public abstract class AbstractTest {
                 .click(getDriver().findElement(By.xpath("//div[@class='login-type type-mail']/input")))
                 .sendKeys(getDriver().findElement(By.xpath("//div[@class='login-type type-mail']/input")), "aaa1@mail.ru")
                 .click(getDriver().findElement(By.xpath(".//input[@class='passowrd-track']")))
+
                 .sendKeys(getDriver().findElement(By.xpath(".//input[@class='passowrd-track']")), "qwerty1")
                 .click(getDriver().findElement(By.xpath(".//form/div[2]/div[2]/div[6]/button ")))
                 .build()

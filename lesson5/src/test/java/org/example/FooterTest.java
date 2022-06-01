@@ -37,6 +37,7 @@ public class FooterTest extends AbstractTestInit {
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.urlContains("https://belpodium.ru/about/kontakty/"));
         Assertions.assertEquals("https://belpodium.ru/about/kontakty/",getDriver().getCurrentUrl());
 
+
         WebElement blog = getDriver().findElement(By.xpath("//div[@class='menu_block']/a[5]"));
         blog.click();
         new WebDriverWait(getDriver(), 5).until(ExpectedConditions.urlContains("https://belpodium.ru/about/blog/"));

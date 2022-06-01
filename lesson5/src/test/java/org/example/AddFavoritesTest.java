@@ -30,6 +30,7 @@ public class AddFavoritesTest extends AbstractTest {
         WebElement product = getDriver().findElement(By.xpath("//img[@alt='Платье Wisell арт: 895430']"));
         product.click();
 
+
         String urlBefore = getDriver().getCurrentUrl();
 
         Actions filterProduct = new Actions(getDriver());

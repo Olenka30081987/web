@@ -25,6 +25,7 @@ public class AddBasketTest extends AbstractTest {
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         jse.executeScript("window.scrollBy(0,450)", "");
 
+
         WebDriverWait wait = new WebDriverWait(getDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Платье Wisell арт: 895430']")));
 

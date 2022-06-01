@@ -18,6 +18,7 @@ public class FilterTest extends AbstractTestInit{
         WebElement productInBasket = getDriver().findElement(By.xpath("//li[@class='mi-0'] //a[@title='Женщинам']"));
         productInBasket.click();
 
+
         JavascriptExecutor jse = (JavascriptExecutor)getDriver();
         jse.executeScript("window.scrollBy(0,200)", "");
 

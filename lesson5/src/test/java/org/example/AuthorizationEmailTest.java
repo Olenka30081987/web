@@ -12,5 +12,6 @@ public class AuthorizationEmailTest extends AbstractTest {
 
         Assertions.assertNotNull(getDriver().findElement(By.xpath(".//a[@class='main_cab_link']")));
 
+
     }
 }
